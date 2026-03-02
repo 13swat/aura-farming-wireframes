@@ -640,16 +640,18 @@
 <nav class="wireframe-nav">
   <span style="margin-right: 12px; opacity: 0.7;">Screens:</span>
   <a href="#" onclick="showScreen('home')" id="nav-home" class="active">1. Feed</a>
-  <a href="#" onclick="showScreen('create-challenge')" id="nav-create-challenge">2. Create Challenge</a>
-  <a href="#" onclick="showScreen('define-actions')" id="nav-define-actions">3. Define Actions</a>
-  <a href="#" onclick="showScreen('invite')" id="nav-invite">4. Invite</a>
-  <a href="#" onclick="showScreen('challenge-detail')" id="nav-challenge-detail">5. Challenge</a>
-  <a href="#" onclick="showScreen('mark-action')" id="nav-mark-action">6. Mark Action</a>
-  <a href="#" onclick="showScreen('action-brag')" id="nav-action-brag">7. Brag Post</a>
-  <a href="#" onclick="showScreen('challenge-leaderboard')" id="nav-challenge-leaderboard">8. Leaderboard</a>
-  <a href="#" onclick="showScreen('group-leaderboard')" id="nav-group-leaderboard">9. Group Stats</a>
-  <a href="#" onclick="showScreen('profile')" id="nav-profile">10. Profile</a>
-  <a href="#" onclick="showScreen('share-card')" id="nav-share-card">11. Share Card</a>
+  <a href="#" onclick="showScreen('groups')" id="nav-groups">2. Groups</a>
+  <a href="#" onclick="showScreen('group-detail')" id="nav-group-detail">3. Group Detail</a>
+  <a href="#" onclick="showScreen('create-challenge')" id="nav-create-challenge">4. Create Challenge</a>
+  <a href="#" onclick="showScreen('define-actions')" id="nav-define-actions">5. Define Actions</a>
+  <a href="#" onclick="showScreen('challenge-detail')" id="nav-challenge-detail">6. Challenge</a>
+  <a href="#" onclick="showScreen('mark-action')" id="nav-mark-action">7. Mark Action</a>
+  <a href="#" onclick="showScreen('action-brag')" id="nav-action-brag">8. Brag Post</a>
+  <a href="#" onclick="showScreen('challenge-leaderboard')" id="nav-challenge-leaderboard">9. Challenge LB</a>
+  <a href="#" onclick="showScreen('group-leaderboard')" id="nav-group-leaderboard">10. Group LB</a>
+  <a href="#" onclick="showScreen('profile')" id="nav-profile">11. Profile</a>
+  <a href="#" onclick="showScreen('share-card')" id="nav-share-card">12. Share Card</a>
+  <a href="#" onclick="showScreen('invite-group')" id="nav-invite-group">13. Invite to Group</a>
 </nav>
 
 <div class="phone-frame">
@@ -717,12 +719,13 @@
         <h2>Recent Aura</h2>
       </div>
 
-      <div class="feed-item">
+      <div class="feed-item clickable" onclick="showScreen('challenge-detail')">
+        <div style="font-size: 11px; color: #8b5cf6; margin-bottom: 8px;">🏋️ Squad Goals • Fitness Week</div>
         <div class="feed-header">
           <div class="avatar small">A</div>
           <div style="flex: 1;">
             <div class="name">Amit farmed aura</div>
-            <div class="time">2 min ago • Fitness Week</div>
+            <div class="time">2 min ago</div>
           </div>
           <span class="aura-badge">+50</span>
         </div>
@@ -737,12 +740,13 @@
         </div>
       </div>
 
-      <div class="feed-item">
+      <div class="feed-item clickable" onclick="showScreen('challenge-detail')">
+        <div style="font-size: 11px; color: #fbbf24; margin-bottom: 8px;">🎮 Friday Night Crew • Game Night Rules</div>
         <div class="feed-header">
           <div class="avatar small">S</div>
           <div style="flex: 1;">
             <div class="name">Sneha lost aura</div>
-            <div class="time">1 hour ago • Game Night</div>
+            <div class="time">1 hour ago</div>
           </div>
           <span class="aura-badge" style="background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);">-25</span>
         </div>
@@ -755,7 +759,8 @@
         </div>
       </div>
 
-      <div class="feed-item">
+      <div class="feed-item clickable" onclick="showScreen('challenge-detail')">
+        <div style="font-size: 11px; color: #8b5cf6; margin-bottom: 8px;">🏋️ Squad Goals • Fitness Week</div>
         <div class="feed-header">
           <div class="avatar small">P</div>
           <div style="flex: 1;">
@@ -781,9 +786,9 @@
         <div class="tab-icon"></div>
         <span>Feed</span>
       </div>
-      <div class="tab-item clickable" onclick="showScreen('group-leaderboard')">
+      <div class="tab-item clickable" onclick="showScreen('groups')">
         <div class="tab-icon"></div>
-        <span>Rankings</span>
+        <span>Groups</span>
       </div>
       <div class="tab-item clickable" onclick="showScreen('profile')">
         <div class="tab-icon"></div>
@@ -792,14 +797,250 @@
     </div>
   </div>
 
-  <!-- Screen 2: Create Challenge -->
+  <!-- Screen 2: Groups List -->
+  <div class="screen" id="groups">
+    <div class="status-bar">9:41</div>
+    <div class="header">
+      <h1>Your Groups</h1>
+    </div>
+    <div class="content">
+      <!-- Group Card 1 -->
+      <div class="card clickable" onclick="showScreen('group-detail')">
+        <div class="card-row">
+          <div class="card-image small" style="background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%); font-size: 24px;">🏋️</div>
+          <div style="flex: 1;">
+            <h3>Squad Goals</h3>
+            <p>8 members • 2 active challenges</p>
+          </div>
+        </div>
+        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #2a2a3e;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; gap: -8px;">
+              <div class="avatar small" style="margin-left: 0;">A</div>
+              <div class="avatar small" style="margin-left: -8px;">S</div>
+              <div class="avatar small" style="margin-left: -8px;">P</div>
+              <div class="avatar small" style="margin-left: -8px; background: #2a2a3e; font-size: 10px;">+5</div>
+            </div>
+            <span class="aura-badge">Your: 850</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group Card 2 -->
+      <div class="card clickable" onclick="showScreen('group-detail')">
+        <div class="card-row">
+          <div class="card-image small" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); font-size: 24px;">🎮</div>
+          <div style="flex: 1;">
+            <h3>Friday Night Crew</h3>
+            <p>5 members • 1 active challenge</p>
+          </div>
+        </div>
+        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #2a2a3e;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; gap: -8px;">
+              <div class="avatar small" style="margin-left: 0;">M</div>
+              <div class="avatar small" style="margin-left: -8px;">K</div>
+              <div class="avatar small" style="margin-left: -8px;">N</div>
+              <div class="avatar small" style="margin-left: -8px; background: #2a2a3e; font-size: 10px;">+2</div>
+            </div>
+            <span class="aura-badge gold">Your: 1,200</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group Card 3 -->
+      <div class="card clickable" onclick="showScreen('group-detail')">
+        <div class="card-row">
+          <div class="card-image small" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%); font-size: 24px;">📚</div>
+          <div style="flex: 1;">
+            <h3>Study Buddies</h3>
+            <p>4 members • No active challenges</p>
+          </div>
+        </div>
+        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #2a2a3e;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; gap: -8px;">
+              <div class="avatar small" style="margin-left: 0;">V</div>
+              <div class="avatar small" style="margin-left: -8px;">R</div>
+              <div class="avatar small" style="margin-left: -8px;">T</div>
+            </div>
+            <span class="aura-badge">Your: 400</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Group Button -->
+      <button class="btn btn-secondary clickable" style="margin-top: 16px;">+ Create New Group</button>
+    </div>
+
+    <div class="fab clickable" onclick="showScreen('create-group')">+</div>
+
+    <div class="tab-bar">
+      <div class="tab-item clickable" onclick="showScreen('home')">
+        <div class="tab-icon"></div>
+        <span>Feed</span>
+      </div>
+      <div class="tab-item active clickable" onclick="showScreen('groups')">
+        <div class="tab-icon"></div>
+        <span>Groups</span>
+      </div>
+      <div class="tab-item clickable" onclick="showScreen('profile')">
+        <div class="tab-icon"></div>
+        <span>Profile</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 3: Group Detail -->
+  <div class="screen" id="group-detail">
+    <div class="status-bar">9:41</div>
+    <div class="header header-with-back">
+      <div class="back-btn clickable" onclick="showScreen('groups')">←</div>
+      <h1 style="font-size: 20px;">Squad Goals</h1>
+    </div>
+    <div class="content">
+      <!-- Group Hero -->
+      <div class="card-image" style="height: 100px; margin: -20px -20px 16px -20px; border-radius: 0; background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);">
+        <span style="font-size: 48px;">🏋️</span>
+      </div>
+
+      <!-- Group Stats -->
+      <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+        <div class="card" style="flex: 1; text-align: center; padding: 12px;">
+          <div style="font-size: 20px; font-weight: 700; color: #8b5cf6;">8</div>
+          <div style="font-size: 11px; color: #888;">Members</div>
+        </div>
+        <div class="card" style="flex: 1; text-align: center; padding: 12px;">
+          <div style="font-size: 20px; font-weight: 700; color: #fbbf24;">2</div>
+          <div style="font-size: 11px; color: #888;">Active</div>
+        </div>
+        <div class="card" style="flex: 1; text-align: center; padding: 12px;">
+          <div style="font-size: 20px; font-weight: 700; color: #34d399;">5.2K</div>
+          <div style="font-size: 11px; color: #888;">Total Aura</div>
+        </div>
+      </div>
+
+      <!-- Your Rank in Group -->
+      <div class="card card-glow clickable" onclick="showScreen('group-leaderboard')">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="rank silver">2</div>
+          <div style="flex: 1;">
+            <div style="font-weight: 600;">Your Rank in Group</div>
+            <div style="font-size: 12px; color: #888;">100 pts behind Priya</div>
+          </div>
+          <span class="aura-badge large">850</span>
+        </div>
+      </div>
+
+      <!-- Active Challenges -->
+      <div class="section-header" style="margin-top: 20px;">
+        <h2>Active Challenges</h2>
+        <a href="#" onclick="showScreen('create-challenge')">+ New</a>
+      </div>
+
+      <div class="card clickable" onclick="showScreen('challenge-detail')">
+        <div class="card-row">
+          <div class="card-image small" style="background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);">🏃</div>
+          <div style="flex: 1;">
+            <h3>Fitness Week</h3>
+            <p>5 days left • 8 participants</p>
+            <div style="display: flex; gap: 8px; margin-top: 8px;">
+              <span class="aura-badge">+180 earned</span>
+              <span style="color: #888; font-size: 12px;">You're #2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card clickable" onclick="showScreen('challenge-detail')">
+        <div class="card-row">
+          <div class="card-image small" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%);">🥗</div>
+          <div style="flex: 1;">
+            <h3>Healthy Eating Month</h3>
+            <p>18 days left • 6 participants</p>
+            <div style="display: flex; gap: 8px; margin-top: 8px;">
+              <span class="aura-badge">+85 earned</span>
+              <span style="color: #888; font-size: 12px;">You're #4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Past Challenges -->
+      <div class="section-header" style="margin-top: 20px;">
+        <h2>Past Challenges</h2>
+        <a href="#">View all</a>
+      </div>
+
+      <div class="card" style="opacity: 0.7;">
+        <div class="card-row">
+          <div class="card-image small" style="background: #2a2a3e;">🏆</div>
+          <div style="flex: 1;">
+            <h3>February Steps Challenge</h3>
+            <p>Completed • You won!</p>
+            <span class="aura-badge gold">+320 earned</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Members -->
+      <div class="section-header" style="margin-top: 20px;">
+        <h2>Members</h2>
+        <a href="#">Invite</a>
+      </div>
+
+      <div style="display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px;">
+        <div style="text-align: center; min-width: 60px;">
+          <div class="avatar" style="margin: 0 auto 4px; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);">P</div>
+          <div style="font-size: 11px;">Priya</div>
+          <div style="font-size: 10px; color: #fbbf24;">950</div>
+        </div>
+        <div style="text-align: center; min-width: 60px;">
+          <div class="avatar" style="margin: 0 auto 4px; border: 2px solid #8b5cf6;">R</div>
+          <div style="font-size: 11px;">You</div>
+          <div style="font-size: 10px; color: #8b5cf6;">850</div>
+        </div>
+        <div style="text-align: center; min-width: 60px;">
+          <div class="avatar" style="margin: 0 auto 4px;">A</div>
+          <div style="font-size: 11px;">Amit</div>
+          <div style="font-size: 10px; color: #888;">720</div>
+        </div>
+        <div style="text-align: center; min-width: 60px;">
+          <div class="avatar" style="margin: 0 auto 4px;">S</div>
+          <div style="font-size: 11px;">Sneha</div>
+          <div style="font-size: 10px; color: #888;">680</div>
+        </div>
+        <div style="text-align: center; min-width: 60px;">
+          <div class="avatar" style="margin: 0 auto 4px;">M</div>
+          <div style="font-size: 11px;">Mike</div>
+          <div style="font-size: 10px; color: #888;">520</div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary clickable" style="margin-top: 20px;" onclick="showScreen('create-challenge')">+ Create Challenge</button>
+    </div>
+  </div>
+
+  <!-- Screen 4: Create Challenge -->
   <div class="screen" id="create-challenge">
     <div class="status-bar">9:41</div>
     <div class="header header-with-back">
-      <div class="back-btn clickable" onclick="showScreen('home')">←</div>
+      <div class="back-btn clickable" onclick="showScreen('group-detail')">←</div>
       <h1 style="font-size: 20px;">Create Challenge</h1>
     </div>
     <div class="content">
+      <!-- Group Context -->
+      <div class="card" style="padding: 12px; margin-bottom: 16px; border: 1px solid #8b5cf6;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="font-size: 24px;">🏋️</div>
+          <div>
+            <div style="font-size: 12px; color: #888;">Creating challenge in</div>
+            <div style="font-weight: 600;">Squad Goals</div>
+          </div>
+          <a href="#" style="margin-left: auto; font-size: 13px; color: #8b5cf6;">Change</a>
+        </div>
+      </div>
+
       <div class="input-group">
         <label>Challenge Name</label>
         <input type="text" placeholder="e.g., Fitness Week, Game Night Rules">
@@ -818,8 +1059,8 @@
           <div>Series</div>
         </div>
         <div class="type-option clickable">
-          <div style="font-size: 24px; margin-bottom: 4px;">👥</div>
-          <div>Group</div>
+          <div style="font-size: 24px; margin-bottom: 4px;">♾️</div>
+          <div>Ongoing</div>
         </div>
       </div>
 
@@ -917,11 +1158,14 @@
 
       <button class="btn btn-secondary clickable" style="margin-top: 16px;">+ Add Action</button>
 
-      <button class="btn btn-primary clickable" style="margin-top: 24px;" onclick="showScreen('invite')">Next: Invite Friends</button>
+      <button class="btn btn-primary clickable" style="margin-top: 24px;" onclick="showScreen('challenge-detail')">Create Challenge</button>
+      <p style="text-align: center; font-size: 12px; color: #888; margin-top: 8px;">
+        All 8 members of Squad Goals will be added
+      </p>
     </div>
   </div>
 
-  <!-- Screen 4: Invite -->
+  <!-- Screen 5: Challenge Detail -->
   <div class="screen" id="invite">
     <div class="status-bar">9:41</div>
     <div class="header header-with-back">
@@ -986,11 +1230,11 @@
     </div>
   </div>
 
-  <!-- Screen 5: Challenge Detail -->
+  <!-- Screen 6: Challenge Detail -->
   <div class="screen" id="challenge-detail">
     <div class="status-bar">9:41</div>
     <div class="header header-with-back">
-      <div class="back-btn clickable" onclick="showScreen('home')">←</div>
+      <div class="back-btn clickable" onclick="showScreen('group-detail')">←</div>
       <h1 style="font-size: 20px;">Fitness Week</h1>
     </div>
     <div class="content">
@@ -1290,13 +1534,23 @@
     </div>
   </div>
 
-  <!-- Screen 9: Group Leaderboard -->
+  <!-- Screen 10: Group Leaderboard -->
   <div class="screen" id="group-leaderboard">
     <div class="status-bar">9:41</div>
-    <div class="header">
-      <h1>Rankings</h1>
+    <div class="header header-with-back">
+      <div class="back-btn clickable" onclick="showScreen('group-detail')">←</div>
+      <h1 style="font-size: 20px;">Group Leaderboard</h1>
     </div>
     <div class="content">
+      <!-- Group Context -->
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+        <div style="font-size: 24px;">🏋️</div>
+        <div>
+          <div style="font-weight: 600;">Squad Goals</div>
+          <div style="font-size: 12px; color: #888;">8 members • All time standings</div>
+        </div>
+      </div>
+
       <!-- Time Filter -->
       <div style="display: flex; gap: 8px; margin-bottom: 20px;">
         <span class="tag clickable" style="background: #8b5cf6; color: white;">All Time</span>
@@ -1304,71 +1558,40 @@
         <span class="tag clickable">This Week</span>
       </div>
 
-      <!-- Your Stats Card -->
-      <div class="card card-glow" style="text-align: center; padding: 20px;">
-        <div class="avatar large" style="margin: 0 auto 12px;">R</div>
-        <h3>You're #4</h3>
-        <div style="font-size: 36px; font-weight: 800; color: #8b5cf6; margin: 8px 0;">2,450</div>
-        <p style="color: #888;">Total Aura Points</p>
-        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 16px;">
-          <div>
-            <div style="font-size: 18px; font-weight: 700; color: #34d399;">12</div>
-            <div style="font-size: 11px; color: #888;">Challenges</div>
-          </div>
-          <div>
-            <div style="font-size: 18px; font-weight: 700; color: #fbbf24;">3</div>
-            <div style="font-size: 11px; color: #888;">Wins</div>
-          </div>
-          <div>
-            <div style="font-size: 18px; font-weight: 700; color: #8b5cf6;">87</div>
-            <div style="font-size: 11px; color: #888;">Actions</div>
-          </div>
+      <!-- Top 3 Podium -->
+      <div style="display: flex; align-items: flex-end; justify-content: center; gap: 8px; margin-bottom: 24px; padding: 20px 0;">
+        <!-- 2nd Place -->
+        <div style="text-align: center;">
+          <div class="avatar" style="margin: 0 auto 8px; background: linear-gradient(135deg, #c0c0c0 0%, #a0a0a0 100%); border: 2px solid #8b5cf6;">R</div>
+          <div style="font-weight: 600; font-size: 14px;">You</div>
+          <div class="aura-badge" style="margin-top: 4px;">850</div>
+          <div style="width: 60px; height: 50px; background: linear-gradient(135deg, #c0c0c0 0%, #a0a0a0 100%); border-radius: 8px 8px 0 0; margin-top: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700;">2</div>
         </div>
-      </div>
-
-      <!-- Leaderboard -->
-      <div class="section-header" style="margin-top: 20px;">
-        <h2>Global Rankings</h2>
-      </div>
-
-      <div class="leaderboard-item top-1 clickable" onclick="showScreen('profile')">
-        <div class="rank gold">1</div>
-        <div class="avatar small" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);">P</div>
-        <div style="flex: 1;">
+        <!-- 1st Place -->
+        <div style="text-align: center;">
+          <div style="font-size: 24px; margin-bottom: 4px;">👑</div>
+          <div class="avatar large" style="margin: 0 auto 8px; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);">P</div>
           <div style="font-weight: 600; font-size: 14px;">Priya</div>
-          <div style="font-size: 11px; color: #888;">15 challenges • 5 wins</div>
+          <div class="aura-badge gold" style="margin-top: 4px;">950</div>
+          <div style="width: 60px; height: 70px; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); border-radius: 8px 8px 0 0; margin-top: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700;">1</div>
         </div>
-        <span class="aura-badge gold">3,200</span>
+        <!-- 3rd Place -->
+        <div style="text-align: center;">
+          <div class="avatar" style="margin: 0 auto 8px; background: linear-gradient(135deg, #cd7f32 0%, #a0522d 100%);">A</div>
+          <div style="font-weight: 600; font-size: 14px;">Amit</div>
+          <div class="aura-badge" style="margin-top: 4px; background: linear-gradient(135deg, #cd7f32 0%, #a0522d 100%);">720</div>
+          <div style="width: 60px; height: 35px; background: linear-gradient(135deg, #cd7f32 0%, #a0522d 100%); border-radius: 8px 8px 0 0; margin-top: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700;">3</div>
+        </div>
       </div>
 
-      <div class="leaderboard-item top-2">
-        <div class="rank silver">2</div>
+      <!-- Rest of Leaderboard -->
+      <div class="leaderboard-item">
+        <div class="rank">4</div>
         <div class="avatar small">S</div>
         <div style="flex: 1;">
           <div style="font-weight: 600; font-size: 14px;">Sneha</div>
-          <div style="font-size: 11px; color: #888;">11 challenges • 4 wins</div>
         </div>
-        <span class="aura-badge">2,850</span>
-      </div>
-
-      <div class="leaderboard-item top-3">
-        <div class="rank bronze">3</div>
-        <div class="avatar small">A</div>
-        <div style="flex: 1;">
-          <div style="font-weight: 600; font-size: 14px;">Amit</div>
-          <div style="font-size: 11px; color: #888;">14 challenges • 3 wins</div>
-        </div>
-        <span class="aura-badge">2,600</span>
-      </div>
-
-      <div class="leaderboard-item" style="border: 2px solid #8b5cf6;">
-        <div class="rank">4</div>
-        <div class="avatar small">R</div>
-        <div style="flex: 1;">
-          <div style="font-weight: 600; font-size: 14px;">You</div>
-          <div style="font-size: 11px; color: #888;">12 challenges • 3 wins</div>
-        </div>
-        <span class="aura-badge">2,450</span>
+        <span class="aura-badge">680</span>
       </div>
 
       <div class="leaderboard-item">
@@ -1376,25 +1599,38 @@
         <div class="avatar small">M</div>
         <div style="flex: 1;">
           <div style="font-weight: 600; font-size: 14px;">Mike</div>
-          <div style="font-size: 11px; color: #888;">8 challenges • 2 wins</div>
         </div>
-        <span class="aura-badge">1,920</span>
+        <span class="aura-badge">520</span>
       </div>
-    </div>
 
-    <div class="tab-bar">
-      <div class="tab-item clickable" onclick="showScreen('home')">
-        <div class="tab-icon"></div>
-        <span>Feed</span>
+      <div class="leaderboard-item">
+        <div class="rank">6</div>
+        <div class="avatar small">K</div>
+        <div style="flex: 1;">
+          <div style="font-weight: 600; font-size: 14px;">Karan</div>
+        </div>
+        <span class="aura-badge">480</span>
       </div>
-      <div class="tab-item active clickable" onclick="showScreen('group-leaderboard')">
-        <div class="tab-icon"></div>
-        <span>Rankings</span>
+
+      <div class="leaderboard-item">
+        <div class="rank">7</div>
+        <div class="avatar small">N</div>
+        <div style="flex: 1;">
+          <div style="font-weight: 600; font-size: 14px;">Neha</div>
+        </div>
+        <span class="aura-badge">350</span>
       </div>
-      <div class="tab-item clickable" onclick="showScreen('profile')">
-        <div class="tab-icon"></div>
-        <span>Profile</span>
+
+      <div class="leaderboard-item">
+        <div class="rank">8</div>
+        <div class="avatar small">V</div>
+        <div style="flex: 1;">
+          <div style="font-weight: 600; font-size: 14px;">Varun</div>
+        </div>
+        <span class="aura-badge">220</span>
       </div>
+
+      <button class="btn btn-outline clickable" style="margin-top: 20px;" onclick="showScreen('share-card')">Share Leaderboard</button>
     </div>
   </div>
 
@@ -1488,9 +1724,9 @@
         <div class="tab-icon"></div>
         <span>Feed</span>
       </div>
-      <div class="tab-item clickable" onclick="showScreen('group-leaderboard')">
+      <div class="tab-item clickable" onclick="showScreen('groups')">
         <div class="tab-icon"></div>
-        <span>Rankings</span>
+        <span>Groups</span>
       </div>
       <div class="tab-item active clickable" onclick="showScreen('profile')">
         <div class="tab-icon"></div>
@@ -1499,7 +1735,7 @@
     </div>
   </div>
 
-  <!-- Screen 11: Share Card -->
+  <!-- Screen 12: Share Card -->
   <div class="screen" id="share-card">
     <div class="status-bar">9:41</div>
     <div class="header header-with-back">
@@ -1547,6 +1783,77 @@
     </div>
   </div>
 
+  <!-- Screen 13: Invite to Group -->
+  <div class="screen" id="invite-group">
+    <div class="status-bar">9:41</div>
+    <div class="header header-with-back">
+      <div class="back-btn clickable" onclick="showScreen('group-detail')">←</div>
+      <h1 style="font-size: 20px;">Invite to Group</h1>
+    </div>
+    <div class="content">
+      <div class="card card-glow" style="text-align: center; padding: 20px;">
+        <div style="font-size: 48px; margin-bottom: 12px;">🏋️</div>
+        <h3>Squad Goals</h3>
+        <p style="color: #888;">8 members • Invite more friends!</p>
+      </div>
+
+      <div class="section-header" style="margin-top: 20px;">
+        <h2>Share Invite Link</h2>
+      </div>
+      <div style="display: flex; gap: 12px;">
+        <div style="flex: 1; padding: 14px; background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 10px; color: #888; font-size: 13px; overflow: hidden;">
+          aura.farm/g/squad-goals
+        </div>
+        <button style="background: #8b5cf6; color: white; border: none; padding: 14px 20px; border-radius: 10px; font-weight: 600;">Copy</button>
+      </div>
+
+      <div style="display: flex; gap: 12px; margin-top: 16px;">
+        <button class="btn btn-secondary" style="flex: 1; padding: 12px;">WhatsApp</button>
+        <button class="btn btn-secondary" style="flex: 1; padding: 12px;">Instagram</button>
+      </div>
+
+      <div class="section-header" style="margin-top: 24px;">
+        <h2>Or invite directly</h2>
+      </div>
+      <input type="text" placeholder="Search contacts..." style="width: 100%; padding: 12px 16px; border: 1px solid #2a2a3e; border-radius: 10px; background: #1a1a2e; color: white; margin-bottom: 12px;">
+
+      <div class="card" style="padding: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="avatar">T</div>
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 14px;">Tanvi Gupta</div>
+            <div style="font-size: 12px; color: #888;">Not on Aura Farming</div>
+          </div>
+          <button style="background: #8b5cf6; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-size: 12px;">Invite</button>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="avatar">D</div>
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 14px;">Deepak Sharma</div>
+            <div style="font-size: 12px; color: #34d399;">On Aura Farming • 1.2K pts</div>
+          </div>
+          <button style="background: #8b5cf6; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-size: 12px;">Add</button>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="avatar" style="background: #34d399;">L</div>
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 14px;">Lakshmi Nair</div>
+            <div style="font-size: 12px; color: #34d399;">On Aura Farming • 890 pts</div>
+          </div>
+          <div style="color: #888; font-size: 12px;">Invited</div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary clickable" style="margin-top: 24px;" onclick="showScreen('group-detail')">Done</button>
+    </div>
+  </div>
+
 </div>
 
 <div class="screen-label" id="screen-label">Screen: Feed</div>
@@ -1565,17 +1872,19 @@
 
     // Update label
     const labels = {
-      'home': 'Feed (Home)',
-      'create-challenge': 'Create Challenge',
+      'home': 'Feed (All Groups Activity)',
+      'groups': 'Your Groups',
+      'group-detail': 'Group Detail (Challenges)',
+      'create-challenge': 'Create Challenge (in Group)',
       'define-actions': 'Define Actions & Points',
-      'invite': 'Invite Friends',
       'challenge-detail': 'Challenge Detail',
       'mark-action': 'Award Aura',
       'action-brag': 'Add Photo/Stickers (Brag)',
       'challenge-leaderboard': 'Challenge Leaderboard',
-      'group-leaderboard': 'Group Rankings',
+      'group-leaderboard': 'Group Leaderboard',
       'profile': 'Profile',
-      'share-card': 'Share Card (Instagram)'
+      'share-card': 'Share Card (Instagram)',
+      'invite-group': 'Invite to Group'
     };
     document.getElementById('screen-label').textContent = 'Screen: ' + labels[screenId];
 
