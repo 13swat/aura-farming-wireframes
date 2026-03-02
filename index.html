@@ -641,17 +641,16 @@
   <span style="margin-right: 12px; opacity: 0.7;">Screens:</span>
   <a href="#" onclick="showScreen('home')" id="nav-home" class="active">1. Feed</a>
   <a href="#" onclick="showScreen('groups')" id="nav-groups">2. Groups</a>
-  <a href="#" onclick="showScreen('group-detail')" id="nav-group-detail">3. Group Detail</a>
-  <a href="#" onclick="showScreen('create-challenge')" id="nav-create-challenge">4. Create Challenge</a>
-  <a href="#" onclick="showScreen('define-actions')" id="nav-define-actions">5. Define Actions</a>
+  <a href="#" onclick="showScreen('challenges')" id="nav-challenges">3. Challenges</a>
+  <a href="#" onclick="showScreen('create-challenge')" id="nav-create-challenge">4. Create</a>
+  <a href="#" onclick="showScreen('invite-challenge')" id="nav-invite-challenge">5. Invite</a>
   <a href="#" onclick="showScreen('challenge-detail')" id="nav-challenge-detail">6. Challenge</a>
-  <a href="#" onclick="showScreen('mark-action')" id="nav-mark-action">7. Mark Action</a>
-  <a href="#" onclick="showScreen('action-brag')" id="nav-action-brag">8. Brag Post</a>
-  <a href="#" onclick="showScreen('challenge-leaderboard')" id="nav-challenge-leaderboard">9. Challenge LB</a>
-  <a href="#" onclick="showScreen('group-leaderboard')" id="nav-group-leaderboard">10. Group LB</a>
+  <a href="#" onclick="showScreen('request-action')" id="nav-request-action">7. Request</a>
+  <a href="#" onclick="showScreen('approval-queue')" id="nav-approval-queue">8. Approvals</a>
+  <a href="#" onclick="showScreen('action-brag')" id="nav-action-brag">9. Brag</a>
+  <a href="#" onclick="showScreen('challenge-leaderboard')" id="nav-challenge-leaderboard">10. Leaderboard</a>
   <a href="#" onclick="showScreen('profile')" id="nav-profile">11. Profile</a>
-  <a href="#" onclick="showScreen('share-card')" id="nav-share-card">12. Share Card</a>
-  <a href="#" onclick="showScreen('invite-group')" id="nav-invite-group">13. Invite to Group</a>
+  <a href="#" onclick="showScreen('share-card')" id="nav-share-card">12. Share</a>
 </nav>
 
 <div class="phone-frame">
@@ -790,6 +789,10 @@
         <div class="tab-icon"></div>
         <span>Groups</span>
       </div>
+      <div class="tab-item clickable" onclick="showScreen('challenges')">
+        <div class="tab-icon"></div>
+        <span>Challenges</span>
+      </div>
       <div class="tab-item clickable" onclick="showScreen('profile')">
         <div class="tab-icon"></div>
         <span>Profile</span>
@@ -884,6 +887,10 @@
         <div class="tab-icon"></div>
         <span>Groups</span>
       </div>
+      <div class="tab-item clickable" onclick="showScreen('challenges')">
+        <div class="tab-icon"></div>
+        <span>Challenges</span>
+      </div>
       <div class="tab-item clickable" onclick="showScreen('profile')">
         <div class="tab-icon"></div>
         <span>Profile</span>
@@ -891,7 +898,131 @@
     </div>
   </div>
 
-  <!-- Screen 3: Group Detail -->
+  <!-- Screen 3: Challenges (Standalone) -->
+  <div class="screen" id="challenges">
+    <div class="status-bar">9:41</div>
+    <div class="header">
+      <h1>Challenges</h1>
+    </div>
+    <div class="content">
+      <!-- Filter -->
+      <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+        <span class="tag clickable" style="background: #8b5cf6; color: white;">All</span>
+        <span class="tag clickable">Hosting</span>
+        <span class="tag clickable">Participating</span>
+        <span class="tag clickable">Completed</span>
+      </div>
+
+      <!-- Active Challenges I'm Hosting -->
+      <div class="section-header">
+        <h2>Hosting</h2>
+        <span style="color: #888; font-size: 12px;">Admin</span>
+      </div>
+
+      <div class="card clickable" onclick="showScreen('challenge-detail')">
+        <div class="card-row">
+          <div class="card-image small" style="background: linear-gradient(135deg, #ef4444 0%, #f87171 100%); font-size: 24px;">🎯</div>
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <h3>Weekend Warrior</h3>
+              <span style="background: #ef4444; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px;">3 pending</span>
+            </div>
+            <p>Mixed friends • 12 members</p>
+            <div style="display: flex; gap: 8px; margin-top: 8px;">
+              <span class="tag" style="font-size: 10px;">3 days left</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenges I'm Participating In -->
+      <div class="section-header" style="margin-top: 20px;">
+        <h2>Participating</h2>
+      </div>
+
+      <div class="card clickable" onclick="showScreen('challenge-detail')">
+        <div class="card-row">
+          <div class="card-image small" style="background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%); font-size: 24px;">🏃</div>
+          <div style="flex: 1;">
+            <h3>Fitness Week</h3>
+            <p>From: Squad Goals • 8 members</p>
+            <div style="display: flex; gap: 8px; margin-top: 8px;">
+              <span class="aura-badge">+180</span>
+              <span style="color: #888; font-size: 12px;">You're #2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card clickable" onclick="showScreen('challenge-detail')">
+        <div class="card-row">
+          <div class="card-image small" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%); font-size: 24px;">📖</div>
+          <div style="flex: 1;">
+            <h3>Read 5 Books</h3>
+            <p>Standalone • 6 members</p>
+            <div style="display: flex; gap: 8px; margin-top: 8px;">
+              <span class="aura-badge">+90</span>
+              <span style="color: #888; font-size: 12px;">You're #1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card clickable" onclick="showScreen('challenge-detail')">
+        <div class="card-row">
+          <div class="card-image small" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); font-size: 24px;">🎮</div>
+          <div style="flex: 1;">
+            <h3>Game Night Rules</h3>
+            <p>From: Friday Night Crew • 5 members</p>
+            <div style="display: flex; gap: 8px; margin-top: 8px;">
+              <span class="aura-badge gold">+420</span>
+              <span style="color: #888; font-size: 12px;">You're #3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Completed -->
+      <div class="section-header" style="margin-top: 20px;">
+        <h2>Completed</h2>
+        <a href="#">View all</a>
+      </div>
+
+      <div class="card" style="opacity: 0.7;">
+        <div class="card-row">
+          <div class="card-image small" style="background: #2a2a3e; font-size: 24px;">🏆</div>
+          <div style="flex: 1;">
+            <h3>February Steps</h3>
+            <p>Ended Mar 1 • You won!</p>
+            <span class="aura-badge gold">+320 total</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fab clickable" onclick="showScreen('create-challenge')">+</div>
+
+    <div class="tab-bar">
+      <div class="tab-item clickable" onclick="showScreen('home')">
+        <div class="tab-icon"></div>
+        <span>Feed</span>
+      </div>
+      <div class="tab-item clickable" onclick="showScreen('groups')">
+        <div class="tab-icon"></div>
+        <span>Groups</span>
+      </div>
+      <div class="tab-item active clickable" onclick="showScreen('challenges')">
+        <div class="tab-icon"></div>
+        <span>Challenges</span>
+      </div>
+      <div class="tab-item clickable" onclick="showScreen('profile')">
+        <div class="tab-icon"></div>
+        <span>Profile</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 4: Group Detail -->
   <div class="screen" id="group-detail">
     <div class="status-bar">9:41</div>
     <div class="header header-with-back">
@@ -1021,29 +1152,38 @@
     </div>
   </div>
 
-  <!-- Screen 4: Create Challenge -->
+  <!-- Screen 5: Create Challenge -->
   <div class="screen" id="create-challenge">
     <div class="status-bar">9:41</div>
     <div class="header header-with-back">
-      <div class="back-btn clickable" onclick="showScreen('group-detail')">←</div>
+      <div class="back-btn clickable" onclick="showScreen('challenges')">←</div>
       <h1 style="font-size: 20px;">Create Challenge</h1>
     </div>
     <div class="content">
-      <!-- Group Context -->
-      <div class="card" style="padding: 12px; margin-bottom: 16px; border: 1px solid #8b5cf6;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <div style="font-size: 24px;">🏋️</div>
-          <div>
-            <div style="font-size: 12px; color: #888;">Creating challenge in</div>
-            <div style="font-weight: 600;">Squad Goals</div>
-          </div>
-          <a href="#" style="margin-left: auto; font-size: 13px; color: #8b5cf6;">Change</a>
+      <div class="input-group">
+        <label>Challenge Name</label>
+        <input type="text" placeholder="e.g., Fitness Week, Weekend Warrior">
+      </div>
+
+      <!-- Link to Group or Standalone -->
+      <div class="input-group">
+        <label>Challenge Scope</label>
+      </div>
+      <div class="type-selector" style="margin-bottom: 16px;">
+        <div class="type-option selected clickable">
+          <div style="font-size: 24px; margin-bottom: 4px;">🎯</div>
+          <div>Standalone</div>
+        </div>
+        <div class="type-option clickable">
+          <div style="font-size: 24px; margin-bottom: 4px;">👥</div>
+          <div>Group</div>
         </div>
       </div>
 
-      <div class="input-group">
-        <label>Challenge Name</label>
-        <input type="text" placeholder="e.g., Fitness Week, Game Night Rules">
+      <div class="card" style="padding: 12px; margin-bottom: 16px; background: rgba(139,92,246,0.1); border: 1px dashed #8b5cf6;">
+        <div style="font-size: 13px; color: #888;">
+          <strong style="color: white;">Standalone:</strong> Invite anyone from any group or individually. You control who joins.
+        </div>
       </div>
 
       <div class="input-group">
@@ -1158,47 +1298,101 @@
 
       <button class="btn btn-secondary clickable" style="margin-top: 16px;">+ Add Action</button>
 
-      <button class="btn btn-primary clickable" style="margin-top: 24px;" onclick="showScreen('challenge-detail')">Create Challenge</button>
-      <p style="text-align: center; font-size: 12px; color: #888; margin-top: 8px;">
-        All 8 members of Squad Goals will be added
-      </p>
+      <button class="btn btn-primary clickable" style="margin-top: 24px;" onclick="showScreen('invite-challenge')">Next: Invite People</button>
     </div>
   </div>
 
-  <!-- Screen 5: Challenge Detail -->
-  <div class="screen" id="invite">
+  <!-- Screen: Invite to Challenge (Multi-group + Individual) -->
+  <div class="screen" id="invite-challenge">
     <div class="status-bar">9:41</div>
     <div class="header header-with-back">
       <div class="back-btn clickable" onclick="showScreen('define-actions')">←</div>
-      <h1 style="font-size: 20px;">Invite Friends</h1>
+      <h1 style="font-size: 20px;">Invite People</h1>
     </div>
     <div class="content">
-      <div class="card card-glow" style="text-align: center; padding: 20px;">
-        <h3 style="margin-bottom: 4px;">Fitness Week Challenge</h3>
-        <p style="color: #888;">7 days • 5 actions defined</p>
+      <div class="card card-glow" style="text-align: center; padding: 16px;">
+        <h3 style="margin-bottom: 4px;">🎯 Weekend Warrior</h3>
+        <p style="color: #888;">Standalone • 5 actions defined</p>
       </div>
 
+      <!-- Selection Summary -->
+      <div style="display: flex; align-items: center; gap: 8px; margin-top: 16px; padding: 12px; background: rgba(139,92,246,0.1); border-radius: 10px; border: 1px solid #8b5cf6;">
+        <span style="color: #8b5cf6; font-weight: 600;">8 selected</span>
+        <span style="color: #888; font-size: 12px;">from 2 groups + 3 individuals</span>
+      </div>
+
+      <!-- Share Link -->
       <div class="section-header" style="margin-top: 20px;">
         <h2>Share Link</h2>
       </div>
       <div style="display: flex; gap: 12px;">
         <div style="flex: 1; padding: 14px; background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 10px; color: #888; font-size: 13px;">
-          aura.farm/c/fitness-week
+          aura.farm/c/weekend-warrior
         </div>
         <button style="background: #8b5cf6; color: white; border: none; padding: 14px 20px; border-radius: 10px; font-weight: 600;">Copy</button>
       </div>
 
+      <!-- Add from Groups -->
       <div class="section-header" style="margin-top: 24px;">
-        <h2>Or invite directly</h2>
+        <h2>Add from Groups</h2>
+      </div>
+
+      <div class="card clickable" style="padding: 12px; border: 2px solid #8b5cf6;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="font-size: 24px;">🏋️</div>
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 14px;">Squad Goals</div>
+            <div style="font-size: 12px; color: #34d399;">All 8 members selected</div>
+          </div>
+          <div style="width: 24px; height: 24px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center;">✓</div>
+        </div>
+      </div>
+
+      <div class="card clickable" style="padding: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="font-size: 24px;">🎮</div>
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 14px;">Friday Night Crew</div>
+            <div style="font-size: 12px; color: #888;">5 members • Select to add</div>
+          </div>
+          <div style="width: 24px; height: 24px; border: 2px solid #2a2a3e; border-radius: 50%;"></div>
+        </div>
+      </div>
+
+      <div class="card clickable" style="padding: 12px; border: 2px solid #8b5cf6;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="font-size: 24px;">📚</div>
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 14px;">Study Buddies</div>
+            <div style="font-size: 12px; color: #fbbf24;">2 of 4 members selected</div>
+          </div>
+          <div style="width: 24px; height: 24px; background: #fbbf24; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #000;">2</div>
+        </div>
+      </div>
+
+      <!-- Add Individuals -->
+      <div class="section-header" style="margin-top: 24px;">
+        <h2>Add Individuals</h2>
       </div>
       <input type="text" placeholder="Search contacts..." style="width: 100%; padding: 12px 16px; border: 1px solid #2a2a3e; border-radius: 10px; background: #1a1a2e; color: white; margin-bottom: 12px;">
 
-      <div class="card" style="padding: 12px;">
+      <div class="card" style="padding: 12px; border: 2px solid #8b5cf6;">
         <div style="display: flex; align-items: center; gap: 12px;">
-          <div class="avatar">A</div>
+          <div class="avatar">D</div>
           <div style="flex: 1;">
-            <div style="font-weight: 600; font-size: 14px;">Amit Kumar</div>
-            <div style="font-size: 12px; color: #888;">1,850 total aura</div>
+            <div style="font-weight: 600; font-size: 14px;">Deepak Sharma</div>
+            <div style="font-size: 12px; color: #34d399;">On Aura • Not in any group</div>
+          </div>
+          <div style="width: 24px; height: 24px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center;">✓</div>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 12px; border: 2px solid #8b5cf6;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="avatar">T</div>
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 14px;">Tanvi Gupta</div>
+            <div style="font-size: 12px; color: #888;">Not on Aura • Will get invite</div>
           </div>
           <div style="width: 24px; height: 24px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center;">✓</div>
         </div>
@@ -1206,27 +1400,16 @@
 
       <div class="card" style="padding: 12px;">
         <div style="display: flex; align-items: center; gap: 12px;">
-          <div class="avatar">S</div>
+          <div class="avatar">L</div>
           <div style="flex: 1;">
-            <div style="font-weight: 600; font-size: 14px;">Sneha Patel</div>
-            <div style="font-size: 12px; color: #888;">2,100 total aura</div>
+            <div style="font-weight: 600; font-size: 14px;">Lakshmi Nair</div>
+            <div style="font-size: 12px; color: #34d399;">On Aura • 890 pts</div>
           </div>
-          <div style="width: 24px; height: 24px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center;">✓</div>
+          <div style="width: 24px; height: 24px; border: 2px solid #2a2a3e; border-radius: 50%;"></div>
         </div>
       </div>
 
-      <div class="card" style="padding: 12px;">
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <div class="avatar">P</div>
-          <div style="flex: 1;">
-            <div style="font-weight: 600; font-size: 14px;">Priya Sharma</div>
-            <div style="font-size: 12px; color: #888;">3,200 total aura</div>
-          </div>
-          <div style="width: 24px; height: 24px; border: 2px solid #8b5cf6; border-radius: 50%;"></div>
-        </div>
-      </div>
-
-      <button class="btn btn-primary clickable" style="margin-top: 24px;" onclick="showScreen('challenge-detail')">Create Challenge</button>
+      <button class="btn btn-primary clickable" style="margin-top: 24px;" onclick="showScreen('challenge-detail')">Create Challenge (8 people)</button>
     </div>
   </div>
 
@@ -1271,10 +1454,22 @@
         </div>
       </div>
 
-      <!-- Quick Actions -->
+      <!-- Pending Approvals (Admin View) -->
+      <div class="card clickable" onclick="showScreen('approval-queue')" style="margin-top: 20px; padding: 14px; background: linear-gradient(135deg, rgba(239,68,68,0.2) 0%, rgba(239,68,68,0.05) 100%); border: 1px solid #ef4444;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 40px; height: 40px; background: #ef4444; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px;">3</div>
+          <div style="flex: 1;">
+            <div style="font-weight: 600;">Pending Approvals</div>
+            <div style="font-size: 12px; color: #888;">Members waiting for your review</div>
+          </div>
+          <span style="color: #888;">→</span>
+        </div>
+      </div>
+
+      <!-- Quick Actions (for admin) -->
       <div class="section-header" style="margin-top: 20px;">
         <h2>Award Aura</h2>
-        <a href="#" onclick="showScreen('mark-action')">View all</a>
+        <span style="font-size: 11px; color: #888; background: #2a2a3e; padding: 2px 8px; border-radius: 4px;">Admin</span>
       </div>
 
       <div class="action-item clickable" onclick="showScreen('mark-action')">
@@ -1320,7 +1515,21 @@
         </div>
       </div>
 
-      <button class="btn btn-primary clickable" style="margin-top: 20px;" onclick="showScreen('mark-action')">+ Award Aura</button>
+      <!-- Pending Request Status (for regular user) -->
+      <div class="card" style="margin-top: 16px; padding: 12px; background: rgba(251,191,36,0.1); border: 1px solid #fbbf24;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 16px;">⏳</span>
+          <div style="flex: 1;">
+            <div style="font-size: 13px; color: #fbbf24;">Your request is pending</div>
+            <div style="font-size: 11px; color: #888;">Complete a workout • Submitted 2h ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; margin-top: 20px;">
+        <button class="btn btn-primary clickable" style="flex: 1;" onclick="showScreen('request-action')">📷 Request Aura</button>
+        <button class="btn btn-secondary clickable" style="flex: 1;" onclick="showScreen('mark-action')">⚡ Award (Admin)</button>
+      </div>
     </div>
   </div>
 
@@ -1728,6 +1937,10 @@
         <div class="tab-icon"></div>
         <span>Groups</span>
       </div>
+      <div class="tab-item clickable" onclick="showScreen('challenges')">
+        <div class="tab-icon"></div>
+        <span>Challenges</span>
+      </div>
       <div class="tab-item active clickable" onclick="showScreen('profile')">
         <div class="tab-icon"></div>
         <span>Profile</span>
@@ -1854,6 +2067,181 @@
     </div>
   </div>
 
+  <!-- Screen: Request Action (User submits proof) -->
+  <div class="screen" id="request-action">
+    <div class="status-bar">9:41</div>
+    <div class="header header-with-back">
+      <div class="back-btn clickable" onclick="showScreen('challenge-detail')">←</div>
+      <h1 style="font-size: 20px;">Request Aura</h1>
+    </div>
+    <div class="content">
+      <p style="color: #888; margin-bottom: 16px;">Claim you completed an action. Admin will review and approve.</p>
+
+      <!-- Select Action -->
+      <div class="section-header">
+        <h2>What did you do?</h2>
+      </div>
+
+      <div class="action-item clickable" style="border: 2px solid #8b5cf6;">
+        <div class="action-icon">🏃</div>
+        <div style="flex: 1;">
+          <div style="font-weight: 600;">Complete a workout</div>
+          <div style="font-size: 12px; color: #888;">Any exercise 30+ mins</div>
+        </div>
+        <div class="action-points">+50</div>
+      </div>
+
+      <div class="action-item clickable">
+        <div class="action-icon">🏆</div>
+        <div style="flex: 1;">
+          <div style="font-weight: 600;">Win a game</div>
+          <div style="font-size: 12px; color: #888;">First place only</div>
+        </div>
+        <div class="action-points">+100</div>
+      </div>
+
+      <div class="action-item clickable">
+        <div class="action-icon">📸</div>
+        <div style="flex: 1;">
+          <div style="font-weight: 600;">Post proof</div>
+          <div style="font-size: 12px; color: #888;">Photo or video evidence</div>
+        </div>
+        <div class="action-points">+10</div>
+      </div>
+
+      <!-- Add Proof -->
+      <div class="section-header" style="margin-top: 24px;">
+        <h2>Add Proof</h2>
+        <span style="color: #888; font-size: 12px;">Required</span>
+      </div>
+      <div class="card-image clickable" style="height: 160px; border: 2px dashed #8b5cf6; background: rgba(139,92,246,0.1);">
+        <div style="text-align: center;">
+          <div style="font-size: 32px; margin-bottom: 8px;">📷</div>
+          <div style="color: #8b5cf6;">+ Add Photo/Video</div>
+        </div>
+      </div>
+
+      <!-- Preview of uploaded -->
+      <div style="display: none; margin-top: 12px;">
+        <div class="card-image" style="height: 200px; background: #2a2a3e;">
+          Photo preview
+        </div>
+      </div>
+
+      <!-- Note -->
+      <div class="input-group" style="margin-top: 20px;">
+        <label>Add a note</label>
+        <textarea style="min-height: 60px;" placeholder="Describe what you did...">Crushed a 45 min HIIT session this morning!</textarea>
+      </div>
+
+      <!-- Submit -->
+      <button class="btn btn-primary clickable" style="margin-top: 16px;" onclick="showScreen('challenge-detail')">Submit Request</button>
+
+      <div class="card" style="margin-top: 16px; padding: 12px; background: rgba(139,92,246,0.1); border: 1px solid #8b5cf6;">
+        <div style="display: flex; align-items: start; gap: 10px;">
+          <span style="font-size: 16px;">ℹ️</span>
+          <div style="font-size: 12px; color: #888;">
+            <strong style="color: white;">Pending approval</strong><br>
+            The challenge admin will review your request and approve or reject it.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen: Approval Queue (Admin view) -->
+  <div class="screen" id="approval-queue">
+    <div class="status-bar">9:41</div>
+    <div class="header header-with-back">
+      <div class="back-btn clickable" onclick="showScreen('challenge-detail')">←</div>
+      <h1 style="font-size: 20px;">Pending Approvals</h1>
+    </div>
+    <div class="content">
+      <p style="color: #888; margin-bottom: 16px;">Weekend Warrior • 3 requests</p>
+
+      <!-- Pending Request 1 -->
+      <div class="card" style="padding: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+          <div class="avatar small">A</div>
+          <div style="flex: 1;">
+            <span style="font-weight: 600;">Amit Kumar</span>
+            <div style="font-size: 11px; color: #888;">2 hours ago</div>
+          </div>
+          <span class="aura-badge">+50</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <div class="action-icon" style="width: 32px; height: 32px; font-size: 14px;">🏃</div>
+          <span style="font-size: 14px; color: #888;">Complete a workout</span>
+        </div>
+        <!-- Proof image -->
+        <div class="card-image" style="height: 120px; margin-bottom: 12px; background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);">
+          📷 Gym selfie with weights
+        </div>
+        <p style="font-size: 13px; color: #ccc; margin-bottom: 16px;">"Just finished leg day! 💪"</p>
+        <div style="display: flex; gap: 12px;">
+          <button class="btn btn-primary clickable" style="flex: 1; padding: 12px;" onclick="showScreen('challenge-detail')">✓ Approve</button>
+          <button class="btn btn-secondary clickable" style="flex: 1; padding: 12px;">✗ Reject</button>
+        </div>
+      </div>
+
+      <!-- Pending Request 2 -->
+      <div class="card" style="padding: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+          <div class="avatar small">S</div>
+          <div style="flex: 1;">
+            <span style="font-weight: 600;">Sneha Patel</span>
+            <div style="font-size: 11px; color: #888;">5 hours ago</div>
+          </div>
+          <span class="aura-badge">+100</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <div class="action-icon" style="width: 32px; height: 32px; font-size: 14px;">🏆</div>
+          <span style="font-size: 14px; color: #888;">Win a game</span>
+        </div>
+        <div class="card-image" style="height: 120px; margin-bottom: 12px; background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);">
+          📷 Screenshot of game victory
+        </div>
+        <p style="font-size: 13px; color: #ccc; margin-bottom: 16px;">"First place in Valorant ranked match!"</p>
+        <div style="display: flex; gap: 12px;">
+          <button class="btn btn-primary clickable" style="flex: 1; padding: 12px;">✓ Approve</button>
+          <button class="btn btn-secondary clickable" style="flex: 1; padding: 12px;">✗ Reject</button>
+        </div>
+      </div>
+
+      <!-- Pending Request 3 (suspicious) -->
+      <div class="card" style="padding: 16px; border: 1px solid #ef4444;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+          <div class="avatar small">P</div>
+          <div style="flex: 1;">
+            <span style="font-weight: 600;">Priya Sharma</span>
+            <div style="font-size: 11px; color: #888;">1 day ago</div>
+          </div>
+          <span class="aura-badge">+50</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <div class="action-icon" style="width: 32px; height: 32px; font-size: 14px;">🏃</div>
+          <span style="font-size: 14px; color: #888;">Complete a workout</span>
+        </div>
+        <div class="card" style="padding: 12px; background: rgba(239,68,68,0.1); border: 1px solid #ef4444; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="color: #ef4444;">⚠️</span>
+            <span style="font-size: 12px; color: #ef4444;">No proof attached</span>
+          </div>
+        </div>
+        <p style="font-size: 13px; color: #ccc; margin-bottom: 16px;">"Did a quick run"</p>
+        <div style="display: flex; gap: 12px;">
+          <button class="btn btn-secondary clickable" style="flex: 1; padding: 12px;">✓ Approve</button>
+          <button class="btn clickable" style="flex: 1; padding: 12px; background: #ef4444; color: white; border: none; border-radius: 12px;">✗ Reject</button>
+        </div>
+      </div>
+
+      <!-- History link -->
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="#" style="color: #8b5cf6; font-size: 14px;">View approval history →</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="screen-label" id="screen-label">Screen: Feed</div>
@@ -1874,11 +2262,15 @@
     const labels = {
       'home': 'Feed (All Groups Activity)',
       'groups': 'Your Groups',
+      'challenges': 'Challenges (Standalone + Group)',
       'group-detail': 'Group Detail (Challenges)',
-      'create-challenge': 'Create Challenge (in Group)',
+      'create-challenge': 'Create Challenge',
       'define-actions': 'Define Actions & Points',
+      'invite-challenge': 'Invite People (Multi-source)',
       'challenge-detail': 'Challenge Detail',
-      'mark-action': 'Award Aura',
+      'request-action': 'Request Aura (Submit Proof)',
+      'approval-queue': 'Pending Approvals (Admin)',
+      'mark-action': 'Award Aura (Admin)',
       'action-brag': 'Add Photo/Stickers (Brag)',
       'challenge-leaderboard': 'Challenge Leaderboard',
       'group-leaderboard': 'Group Leaderboard',
